@@ -58,3 +58,8 @@ _deps
 .codelite
 *.core
 cmake-build-*
+docbook
+html
+latex
+*~
+*.swp
