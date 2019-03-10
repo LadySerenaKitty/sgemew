@@ -84,11 +84,11 @@ set(CMAKE_LDFLAGS "${CMAKE_LDFLAGS} -L. ")
 
 # Define the CXX sources
 set ( CXX_SRCS
-    ${CMAKE_CURRENT_LIST_DIR}/src/util/MemoryRanger.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/src/hardware/MemoryDevice.cpp
     ${CMAKE_CURRENT_LIST_DIR}/src/hardware/SystemMemory.cpp
     ${CMAKE_CURRENT_LIST_DIR}/src/ui/MainEmu.cpp
     ${CMAKE_CURRENT_LIST_DIR}/src/hardware/BaseDevice.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/src/hardware/MemoryDevice.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/src/util/MemoryRanger.cpp
     ${CMAKE_CURRENT_LIST_DIR}/src/MainEmuLink.cpp
     ${CMAKE_CURRENT_LIST_DIR}/src/statics.cpp
     ${CMAKE_CURRENT_LIST_DIR}/src/main.cpp

@@ -1,4 +1,4 @@
-/**
+/** @internal
  *  Copyright 2019 StarPhoenix Media
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,6 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
+ * @endinternal
 **/
 
 #ifndef BASEDEVICE_H
@@ -23,6 +24,13 @@ namespace sgemew
 namespace hardware
 {
 
+/** Base interface for all devices
+ * @class BaseDevice
+ * @author Kitty
+ * @date 9 March 2019
+ * @file BaseDevice.h
+ * @license Apache 2.0
+ */
 class BaseDevice
 {
 public:

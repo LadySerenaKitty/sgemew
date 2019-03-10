@@ -1,4 +1,4 @@
-/**
+/** @internal
  *  Copyright 2019 StarPhoenix Media
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,6 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
+ * @endinternal
 **/
 
 #ifndef SYSTEMMEMORY_H
@@ -29,20 +30,18 @@ namespace sgemew
 namespace hardware
 {
 
+/** Access controller for system memory bus
+ * @class SystemMemory
+ * @author Kitty
+ * @date 9 March 2019
+ * @file SystemMemory.h
+ * @license Apache 2.0
+ */
 class SystemMemory : public sgemew::hardware::MemoryDevice
 {
 public:
 	SystemMemory();
 	~SystemMemory();
-/*	uint8_t read8(uint32_t addr);
-	uint16_t read16(uint32_t addr);
-	uint32_t read32(uint32_t addr);
-	uint64_t read64(uint32_t addr);
-
-	void write(uint32_t addr, uint8_t data);
-	void write(uint32_t addr, uint16_t data);
-	void write(uint32_t addr, uint32_t data);
-	void write(uint32_t addr, uint64_t data);*/
 
 	uint8_t &operator[](uint32_t addr);
 
