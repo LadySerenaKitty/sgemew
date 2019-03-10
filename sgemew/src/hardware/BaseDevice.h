@@ -29,7 +29,6 @@ namespace hardware
  * @author Kitty
  * @date 9 March 2019
  * @file BaseDevice.h
- * @license Apache 2.0
  */
 class BaseDevice
 {

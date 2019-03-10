@@ -15,14 +15,39 @@
  * @endinternal
 **/
 
-#include "BaseDevice.h"
+#ifndef MIPSCPU_H
+#define MIPSCPU_H
 
-using namespace sgemew::hardware;
+#include <cstdint>
+#include "MipsIV.h"
 
-BaseDevice::BaseDevice()
+namespace sgemew
 {
+
+namespace hardware
+{
+
+class MipsCpu;
+
+typedef void (*mipsfunc)(uint32_t, MipsCpu*);
+
+/** Implementation of a MIPS R10k processor (MIPS IV ISA)
+ * @class MipsCpu
+ * @author Kitty
+ * @date 10 March 2019
+ * @file MipsCpu.h
+ */
+class MipsCpu
+{
+public:
+	MipsCpu();
+	~MipsCpu();
+	mipsfunc getInstruction(uint32_t data);
+};
+
+
 }
 
-BaseDevice::~BaseDevice()
-{
 }
+
+#endif // MIPSCPU_H

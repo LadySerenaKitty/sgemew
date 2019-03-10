@@ -35,7 +35,6 @@ namespace hardware
  * @author Kitty
  * @date 9 March 2019
  * @file SystemMemory.h
- * @license Apache 2.0
  */
 class SystemMemory : public sgemew::hardware::MemoryDevice
 {

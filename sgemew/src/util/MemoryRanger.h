@@ -32,7 +32,6 @@ namespace util
  * @author Kitty
  * @date 9 March 2019
  * @file MemoryRanger.h
- * @license Apache 2.0
  */
 class MemoryRanger
 {

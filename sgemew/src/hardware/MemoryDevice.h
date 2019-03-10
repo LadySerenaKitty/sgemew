@@ -31,7 +31,6 @@ namespace hardware
  * @author Kitty
  * @date 9 March 2019
  * @file MemoryDevice.h
- * @license Apache 2.0
  */
 class MemoryDevice
 {

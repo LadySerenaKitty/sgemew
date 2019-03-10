@@ -15,6 +15,10 @@
       <File Name="src/util/MemoryRanger.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="hardware">
+      <VirtualDirectory Name="mips">
+        <File Name="src/hardware/mips/MipsInstructions.cpp"/>
+      </VirtualDirectory>
+      <File Name="src/hardware/MipsCpu.cpp"/>
       <File Name="src/hardware/SystemMemory.cpp"/>
       <File Name="src/hardware/MemoryDevice.cpp"/>
       <File Name="src/hardware/BaseDevice.cpp"/>
@@ -31,6 +35,11 @@
       <File Name="src/util/MemoryRanger.h"/>
     </VirtualDirectory>
     <VirtualDirectory Name="hardware">
+      <VirtualDirectory Name="mips">
+        <File Name="src/hardware/mips/MipsInstructions.h"/>
+      </VirtualDirectory>
+      <File Name="src/hardware/MipsIV.h"/>
+      <File Name="src/hardware/MipsCpu.h"/>
       <File Name="src/hardware/SystemMemory.h"/>
       <File Name="src/hardware/MemoryDevice.h"/>
       <File Name="src/hardware/BaseDevice.h"/>

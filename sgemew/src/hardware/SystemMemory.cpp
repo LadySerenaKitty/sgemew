@@ -19,13 +19,9 @@
 #include <iomanip>
 #include <locale>
 
-namespace sgemew
-{
+using namespace sgemew::hardware;
 
-namespace hardware
-{
-
-SystemMemory::SystemMemory() : sgemew::hardware::MemoryDevice::MemoryDevice()
+SystemMemory::SystemMemory() : MemoryDevice::MemoryDevice()
 {
 	ranges = new std::list<sgemew::util::MemoryRanger*>();
 }
@@ -67,7 +63,7 @@ void SystemMemory::createA(uint32_t start, uint32_t end)
 
 void SystemMemory::createL(uint32_t start, uint32_t length)
 {
-	sgemew::hardware::MemoryDevice *md = new sgemew::hardware::MemoryDevice(length);
+	MemoryDevice *md = new MemoryDevice(length);
 	addL(start, length, md);
 }
 
@@ -98,7 +94,4 @@ uint8_t &SystemMemory::operator [](uint32_t addr)
 		lastaccess = getByRanger(addr);
 	}
 	return (*lastaccess->getMemory())[addr - lastaccess->getBase()];
-}
-
-}
 }

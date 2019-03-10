@@ -17,11 +17,7 @@
 
 #include "MemoryDevice.h"
 
-namespace sgemew
-{
-
-namespace hardware
-{
+using namespace sgemew::hardware;
 
 MemoryDevice::MemoryDevice()
 {
@@ -113,7 +109,4 @@ void MemoryDevice::initMemory(uint32_t size)
 	aSize = size;
 	mem = new uint8_t[size];
 	initialized = true;
-}
-
-}
 }
