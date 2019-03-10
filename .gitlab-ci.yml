@@ -5,6 +5,7 @@ image: alpine
 pages:
   script:
   - apk update && apk add doxygen
+  - mkdir sgemew/doc
   - doxygen sgemew/Doxyfile
   - mv sgemew/doc/html/ public/
   artifacts:
