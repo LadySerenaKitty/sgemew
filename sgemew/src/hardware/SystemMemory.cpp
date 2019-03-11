@@ -45,34 +45,34 @@ void SystemMemory::add(sgemew::util::MemoryRanger *memranger)
 	std::cout << " bytes)" << std::endl;
 }
 
-void SystemMemory::addA(uint32_t start, uint32_t end, MemoryDevice *memdev)
+void SystemMemory::addA(uint64_t start, uint64_t end, MemoryDevice *memdev)
 {
 	addL(start, end - start, memdev);
 }
 
-void SystemMemory::addL(uint32_t start, uint32_t length, MemoryDevice *memdev)
+void SystemMemory::addL(uint64_t start, uint64_t length, MemoryDevice *memdev)
 {
 	sgemew::util::MemoryRanger *mr = new sgemew::util::MemoryRanger(start, length, memdev);
 	add(mr);
 }
 
-void SystemMemory::createA(uint32_t start, uint32_t end)
+void SystemMemory::createA(uint64_t start, uint64_t end)
 {
 	createL(start, end - start);
 }
 
-void SystemMemory::createL(uint32_t start, uint32_t length)
+void SystemMemory::createL(uint64_t start, uint64_t length)
 {
 	MemoryDevice *md = new MemoryDevice(length);
 	addL(start, length, md);
 }
 
-MemoryDevice* SystemMemory::getByAddress(uint32_t addr)
+MemoryDevice* SystemMemory::getByAddress(uint64_t addr)
 {
 	return getByRanger(addr)->getMemory();
 }
 
-sgemew::util::MemoryRanger* SystemMemory::getByRanger(uint32_t addr)
+sgemew::util::MemoryRanger* SystemMemory::getByRanger(uint64_t addr)
 {
 	for(sgemew::util::MemoryRanger *mr : *ranges)
 	{
@@ -86,7 +86,7 @@ sgemew::util::MemoryRanger* SystemMemory::getByRanger(uint32_t addr)
 
 sgemew::util::MemoryRanger *lastaccess = nullptr;
 
-uint8_t &SystemMemory::operator [](uint32_t addr)
+uint8_t& SystemMemory::operator [](uint64_t addr)
 {
 	// accellerate memory access via caching
 	if (lastaccess == nullptr || !lastaccess->isAddrInRange(addr))

@@ -25,7 +25,7 @@
 #define SIZE32 0xffffffff
 #define SIZE64 0xffffffffffffffff
 
-#define ARGS uint32_t data, sgemew::util::RegHelper *rh, MipsCpu* cpu
+#define ARGS uint32_t data, sgemew::util::RegHelper *rg, MipsCpu* cpu
 #define CODE_MASK 0xfc000000
 #define FUNC_MASK 0x0000003f
 #define REG_MASK  0x1f

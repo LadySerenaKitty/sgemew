@@ -45,8 +45,6 @@ public:
 
 	static void nop(ARGS);
 
-	static void mspecial(ARGS);
-	static void mregimm(ARGS);
 	static void mj(ARGS);
 	static void mjal(ARGS);
 	static void mbeq(ARGS);

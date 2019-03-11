@@ -21,8 +21,9 @@
 
 using namespace sgemew::hardware;
 
-MipsCpu::MipsCpu()
+MipsCpu::MipsCpu(SystemMemory *memory)
 {
+	sm = memory;
 }
 
 MipsCpu::~MipsCpu()
@@ -205,11 +206,11 @@ void MipsCpu::cycle()
 	uint64_t *rt = &reg_gp[VALUE_RT(data)];
 	uint64_t *rd = &reg_gp[VALUE_RD(data)];
 
-	sgemew::util::RegHelper *rh = new sgemew::util::RegHelper(*rs, *rt, *rd);
-	f(data, rh, this);
+	sgemew::util::RegHelper *rg = new sgemew::util::RegHelper(*rs, *rt, *rd);
+	f(data, rg, this);
 
 	// restore registers
-	*rs = rh->rs;
-	*rt = rh->rt;
-	*rd = rh->rd;
+	*rs = rg->rs;
+	*rt = rg->rt;
+	*rd = rg->rd;
 }

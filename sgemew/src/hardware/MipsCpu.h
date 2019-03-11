@@ -20,6 +20,7 @@
 
 #include <cstdint>
 #include "MipsIV.h"
+#include "SystemMemory.h"
 
 namespace sgemew
 {
@@ -41,7 +42,9 @@ class MipsCpu
 {
 
 public:
-	MipsCpu();
+	SystemMemory *sm;
+
+	MipsCpu(SystemMemory *memory);
 	~MipsCpu();
 	mipsfunc getInstruction(uint32_t data);
 	void cycle();

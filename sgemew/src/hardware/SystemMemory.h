@@ -42,17 +42,17 @@ public:
 	SystemMemory();
 	~SystemMemory();
 
-	uint8_t &operator[](uint32_t addr);
+	uint8_t& operator[](uint64_t addr);
 
 	void add(sgemew::util::MemoryRanger *memranger);
-	void addA(uint32_t start, uint32_t end, MemoryDevice *memdev);
-	void addL(uint32_t start, uint32_t length, MemoryDevice *memdev);
+	void addA(uint64_t start, uint64_t end, MemoryDevice *memdev);
+	void addL(uint64_t start, uint64_t length, MemoryDevice *memdev);
 
-	void createA(uint32_t start, uint32_t end);
-	void createL(uint32_t start, uint32_t length);
+	void createA(uint64_t start, uint64_t end);
+	void createL(uint64_t start, uint64_t length);
 
-	MemoryDevice* getByAddress(uint32_t addr);
-	sgemew::util::MemoryRanger* getByRanger(uint32_t addr);
+	MemoryDevice* getByAddress(uint64_t addr);
+	sgemew::util::MemoryRanger* getByRanger(uint64_t addr);
 
 private:
 	std::list<sgemew::util::MemoryRanger*> *ranges;
