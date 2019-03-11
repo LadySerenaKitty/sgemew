@@ -167,12 +167,14 @@ void MipsInstructions::mbgtzl(ARGS)
 
 
 void MipsInstructions::mdaddi(ARGS)
-{
+{ // page 65
+	rh->rt = rh->rs + rh->get16(data);
 	return;
 }
 
 void MipsInstructions::mdaddiu(ARGS)
-{
+{ // page 66
+	rh->rt = rh->rs + rh->get16(data);
 	return;
 }
 
@@ -405,7 +407,8 @@ void MipsInstructions::msyscall(ARGS)
 }
 
 void MipsInstructions::mbreak(ARGS)
-{
+{ // page 62
+	// TODO: signal "Breakpoint"
 	return;
 }
 
@@ -436,17 +439,20 @@ void MipsInstructions::mmtlo(ARGS)
 }
 
 void MipsInstructions::mdsllv(ARGS)
-{
+{ // page 77
+	rh->rd = rh->rt << rh->rs;
 	return;
 }
 
 void MipsInstructions::mdsrlv(ARGS)
-{
+{ // page 83
+	rh->rd = rh->rt >> rh>rs;
 	return;
 }
 
 void MipsInstructions::mdsrav(ARGS)
-{
+{ // page 80
+	rh->rd = rh->rt >> rh->rs;
 	return;
 }
 
@@ -462,32 +468,49 @@ void MipsInstructions::mmultu(ARGS)
 }
 
 void MipsInstructions::mdiv(ARGS)
-{
+{ // page 70
+	int64_t lo = (int32_t)rh->get32(rh->rs) / (int32_t)rh->get32(rh->rt);
+	int64_t hi = (int32_t)rh->get32(rh->rs) % (int32_t)rh->get32(rh->rt);
+	// TODO: figure out LO and HI
 	return;
 }
 
 void MipsInstructions::mdivu(ARGS)
-{
+{ // page 72
+	uint64_t lo = rh->get32(rh->rs) / rh->get32(rh->rt);
+	uint64_t hi = rh->get32(rh->rs) % rh->get32(rh->rt);
 	return;
 }
 
 void MipsInstructions::mdmult(ARGS)
-{
+{ // page 73
+	// TODO: 128-bit multiplication?????
+	int64_t lo = (int64_t)rh->rs * (int64_t)rh->rt;
+	int64_t hi = (int64_t)rh->rs * (int64_t)rh->rt;
 	return;
 }
 
 void MipsInstructions::mdmultu(ARGS)
-{
+{ // page 74
+	// TODO: 128-bit multiplication?????
+	uint64_t lo = rh->rs * rh->rt;
+	uint64_t hi = rh->rs * rh->rt;
 	return;
 }
 
 void MipsInstructions::mddiv(ARGS)
-{
+{ // page 68
+	int64_t lo = (int64_t)rh->rs / (int64_t)rh->rt;
+	int64_t hi = (int64_t)rh->rd % (int64_t)rh->rt;
+	// TODO: figure out LO and HI
 	return;
 }
 
 void MipsInstructions::mddivu(ARGS)
-{
+{ // page 69
+	uint64_t lo = rh->rs / rh->rt;
+	uint64_t hi = rh->rs % rh->rt;
+	// TODO: figure out LO and HI
 	return;
 }
 
@@ -553,12 +576,16 @@ void MipsInstructions::msltu(ARGS)
 }
 
 void MipsInstructions::mdadd(ARGS)
-{
+{ // page 64
+	rh->rd = rh->rs + rh->rt;
+	// side-note, we should be throwing an "IntegerOverflow"
+	// but we can't because we can't detect this
 	return;
 }
 
 void MipsInstructions::mdaddu(ARGS)
-{
+{ // page 67
+	rh->rt = rh->rs + rh->rt;
 	return;
 }
 
@@ -605,32 +632,38 @@ void MipsInstructions::mtne(ARGS)
 
 
 void MipsInstructions::mdsll(ARGS)
-{
+{ // page 75
+	rh->rd = rh->rt << VALUE_SA(data);
 	return;
 }
 
 void MipsInstructions::mdsrl(ARGS)
-{
+{ // page 81
+	rh->rd = rh->rt >> VALUE_SA(data);
 	return;
 }
 
 void MipsInstructions::mdsra(ARGS)
-{
+{ // page 78
+	rh->rd = rh->rt >> VALUE_SA(data);
 	return;
 }
 
 void MipsInstructions::mdsll32(ARGS)
-{
+{ // page 76
+	rh->rd = rh->rt << (VALUE_SA(data) + 32);
 	return;
 }
 
 void MipsInstructions::mdsrl32(ARGS)
-{
+{ // page 82
+	rh->rd = rh->rt >> (VALUE_SA(data) + 32);
 	return;
 }
 
 void MipsInstructions::mdsra32(ARGS)
-{
+{ // page 79
+	rh->rd = rh->rt >> (VALUE_SA(data) + 32);
 	return;
 }
 
