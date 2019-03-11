@@ -12,6 +12,7 @@
   <Dependencies/>
   <VirtualDirectory Name="src">
     <VirtualDirectory Name="util">
+      <File Name="src/util/RegHelper.cpp"/>
       <File Name="src/util/MemoryRanger.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="hardware">
@@ -32,6 +33,7 @@
   </VirtualDirectory>
   <VirtualDirectory Name="include">
     <VirtualDirectory Name="util">
+      <File Name="src/util/RegHelper.h"/>
       <File Name="src/util/MemoryRanger.h"/>
     </VirtualDirectory>
     <VirtualDirectory Name="hardware">

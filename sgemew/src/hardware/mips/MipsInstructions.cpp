@@ -27,305 +27,315 @@ MipsInstructions::~MipsInstructions()
 {
 }
 
-void MipsInstructions::nop(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::nop(ARGS)
 {
 	return;
 }
 
 //{ Base Opcodes
-void MipsInstructions::mspecial(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mspecial(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mregimm(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mregimm(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mj(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mj(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mjal(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mjal(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mbeq(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mbeq(ARGS)
+{ // page 44
+	// TODO: figure out how to implement branching
+	return;
+}
+
+void MipsInstructions::mbne(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mbne(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mblez(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mblez(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mbgtz(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-
-void MipsInstructions::maddi(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::maddiu(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mslti(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::msltiu(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mandi(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mori(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mxori(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mlui(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mbgtz(ARGS)
 {
 	return;
 }
 
 
-void MipsInstructions::mcop0(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::maddi(ARGS)
+{ // page 39
+	int64_t a = rh->get32(rh->rs) + rh->get16(data);
+	if (0xffffffff00000000 & a)
+	{ // TODO: signal "IntegerOverflow"
+	}
+	rh->rt = rh->get32(a);
+	return;
+}
+
+void MipsInstructions::maddiu(ARGS)
+{ // page 40
+	int64_t a = rh->get32(rh->rs) + rh->get16(data);
+	rh->rt = rh->get32(a);
+	return;
+}
+
+void MipsInstructions::mslti(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mcop1(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::msltiu(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mcop2(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mandi(ARGS)
+{ // page 43
+	int64_t a = rh->rs & rh->get16(rh->rt);
+	rh->rd = a;
+	return;
+}
+
+void MipsInstructions::mori(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mcop1x(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mxori(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mbeql(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mbnel(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mblezl(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mbgtzl(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-
-void MipsInstructions::mdaddi(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mdaddiu(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mldl(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mldr(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mlui(ARGS)
 {
 	return;
 }
 
 
-void MipsInstructions::mlb(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mcop0(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mlh(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mcop1(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mlwl(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mcop2(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mlw(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mcop1x(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mlbu(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mbeql(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mlhu(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mbnel(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mlwr(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mblezl(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mlwu(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-
-void MipsInstructions::msb(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::msh(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mswl(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::msw(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::msdl(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::msdr(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mswr(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mbgtzl(ARGS)
 {
 	return;
 }
 
 
-void MipsInstructions::mll(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mdaddi(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mlwc1(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mdaddiu(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mlwc2(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mldl(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mpref(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mlld(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mldc1(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mldc2(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mld(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mldr(ARGS)
 {
 	return;
 }
 
 
-void MipsInstructions::msc(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mlb(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mswc1(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mlh(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mswc2(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mlwl(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mscd(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mlw(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::msdc1(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mlbu(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::msdc2(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mlhu(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::msd(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mlwr(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mlwu(ARGS)
+{
+	return;
+}
+
+
+void MipsInstructions::msb(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::msh(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mswl(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::msw(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::msdl(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::msdr(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mswr(ARGS)
+{
+	return;
+}
+
+
+void MipsInstructions::mll(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mlwc1(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mlwc2(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mpref(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mlld(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mldc1(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mldc2(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mld(ARGS)
+{
+	return;
+}
+
+
+void MipsInstructions::msc(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mswc1(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mswc2(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mscd(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::msdc1(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::msdc2(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::msd(ARGS)
 {
 	return;
 }
@@ -333,284 +343,293 @@ void MipsInstructions::msd(uint32_t data, MipsCpu* cpu)
 //}
 
 //{ special functions
-void MipsInstructions::msll(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::msll(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mmovci(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mmovci(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::msrl(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::msrl(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::msra(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::msra(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::msllv(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::msllv(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::msrlv(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::msrlv(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::msrav(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-
-void MipsInstructions::mjr(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mjalr(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mmovz(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mmovn(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::msyscall(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mbreak(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::msync(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::msrav(ARGS)
 {
 	return;
 }
 
 
-void MipsInstructions::mmfhi(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mjr(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mmthi(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mjalr(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mmflo(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mmovz(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mmtlo(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mmovn(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mdsllv(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::msyscall(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mdsrlv(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mbreak(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mdsrav(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-
-void MipsInstructions::mmult(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mmultu(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mdiv(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mdivu(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mdmult(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mdmultu(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mddiv(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mddivu(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::msync(ARGS)
 {
 	return;
 }
 
 
-void MipsInstructions::madd(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mmfhi(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::maddu(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mmthi(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::msub(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mmflo(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::msubu(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mmtlo(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mand(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mdsllv(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mor(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mdsrlv(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mxor(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mnor(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mdsrav(ARGS)
 {
 	return;
 }
 
 
-void MipsInstructions::mslt(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mmult(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::msltu(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mmultu(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mdadd(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mdiv(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mdaddu(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mdivu(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mdsub(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mdmult(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mdsubu(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mdmultu(ARGS)
 {
 	return;
 }
 
-
-void MipsInstructions::mtge(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mddiv(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mtgeu(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mtlt(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mtltu(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mteq(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mtne(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mddivu(ARGS)
 {
 	return;
 }
 
 
-void MipsInstructions::mdsll(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::madd(ARGS)
+{ // page 38
+	int64_t a = rh->get32(rh->rs) + rh->get32(rh->rt);
+	if (0xffffffff00000000 & a)
+	{ // TODO: signal "IntegerOverflow"
+	}
+	rh->rd = rh->get32(a);
+	return;
+}
+
+void MipsInstructions::maddu(ARGS)
+{ // page 41
+	int64_t a = rh->get32(rh->rs) + rh->get32(rh->rt);
+	rh->rd = rh->get32(a);
+	return;
+}
+
+void MipsInstructions::msub(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mdsrl(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::msubu(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mdsra(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mand(ARGS)
+{ // page 42
+	int64_t a = rh->rs & rh->rt;
+	rh->rd = a;
+	return;
+}
+
+void MipsInstructions::mor(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mdsll32(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mxor(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mdsrl32(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mnor(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mdsra32(uint32_t data, MipsCpu* cpu)
+
+void MipsInstructions::mslt(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::msltu(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mdadd(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mdaddu(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mdsub(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mdsubu(ARGS)
+{
+	return;
+}
+
+
+void MipsInstructions::mtge(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mtgeu(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mtlt(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mtltu(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mteq(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mtne(ARGS)
+{
+	return;
+}
+
+
+void MipsInstructions::mdsll(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mdsrl(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mdsra(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mdsll32(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mdsrl32(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mdsra32(ARGS)
 {
 	return;
 }
@@ -618,74 +637,74 @@ void MipsInstructions::mdsra32(uint32_t data, MipsCpu* cpu)
 //}
 
 //{ regimm functions
-void MipsInstructions::mbltz(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mbltz(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mbgez(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mbgez(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mbltzl(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mbltzl(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mbgezl(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-
-void MipsInstructions::mtgei(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mtgeiu(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mtlti(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mtltiu(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mteqi(uint32_t data, MipsCpu* cpu)
-{
-	return;
-}
-
-void MipsInstructions::mtnei(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mbgezl(ARGS)
 {
 	return;
 }
 
 
-void MipsInstructions::mbltzal(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mtgei(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mbgezal(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mtgeiu(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mbltzall(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mtlti(ARGS)
 {
 	return;
 }
 
-void MipsInstructions::mbgezall(uint32_t data, MipsCpu* cpu)
+void MipsInstructions::mtltiu(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mteqi(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mtnei(ARGS)
+{
+	return;
+}
+
+
+void MipsInstructions::mbltzal(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mbgezal(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mbltzall(ARGS)
+{
+	return;
+}
+
+void MipsInstructions::mbgezall(ARGS)
 {
 	return;
 }

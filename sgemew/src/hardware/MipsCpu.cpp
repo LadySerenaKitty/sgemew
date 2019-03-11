@@ -17,6 +17,7 @@
 
 #include "MipsCpu.h"
 #include "mips/MipsInstructions.h"
+#include "../util/RegHelper.h"
 
 using namespace sgemew::hardware;
 
@@ -190,4 +191,25 @@ mipsfunc MipsCpu::getInstruction(uint32_t data)
 
 		default:		return &mips::MipsInstructions::nop;
 	}
+}
+
+void MipsCpu::cycle()
+{
+	// TODO: stuff goes here
+	uint32_t data = 0;
+
+	// TODO: maybe moar stuff here
+	mipsfunc f = getInstruction(data);
+
+	uint64_t *rs = &reg_gp[VALUE_RS(data)];
+	uint64_t *rt = &reg_gp[VALUE_RT(data)];
+	uint64_t *rd = &reg_gp[VALUE_RD(data)];
+
+	sgemew::util::RegHelper *rh = new sgemew::util::RegHelper(*rs, *rt, *rd);
+	f(data, rh, this);
+
+	// restore registers
+	*rs = rh->rs;
+	*rt = rh->rt;
+	*rd = rh->rd;
 }

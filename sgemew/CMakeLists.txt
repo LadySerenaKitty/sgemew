@@ -84,6 +84,7 @@ set(CMAKE_LDFLAGS "${CMAKE_LDFLAGS} -L. ")
 
 # Define the CXX sources
 set ( CXX_SRCS
+    ${CMAKE_CURRENT_LIST_DIR}/src/util/RegHelper.cpp
     ${CMAKE_CURRENT_LIST_DIR}/src/hardware/BaseDevice.cpp
     ${CMAKE_CURRENT_LIST_DIR}/src/hardware/MipsCpu.cpp
     ${CMAKE_CURRENT_LIST_DIR}/src/hardware/mips/MipsInstructions.cpp

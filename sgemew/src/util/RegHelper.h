@@ -15,45 +15,37 @@
  * @endinternal
 **/
 
-#ifndef MIPSCPU_H
-#define MIPSCPU_H
+#ifndef REGHELPER_H
+#define REGHELPER_H
 
 #include <cstdint>
-#include "MipsIV.h"
+#include "../hardware/MipsIV.h"
 
 namespace sgemew
 {
 
-namespace hardware
+namespace util
 {
 
-class MipsCpu;
-
-typedef void (*mipsfunc)(ARGS);
-
-/** Implementation of a MIPS R10k processor (MIPS IV ISA)
- * @class MipsCpu
- * @author Kitty
- * @date 10 March 2019
- * @file MipsCpu.h
- */
-class MipsCpu
+class RegHelper
 {
-
 public:
-	MipsCpu();
-	~MipsCpu();
-	mipsfunc getInstruction(uint32_t data);
-	void cycle();
+	RegHelper(uint64_t s, uint64_t t, uint64_t d);
+	RegHelper();
+	~RegHelper();
 
-private:
-	uint64_t reg_gp[64];
-	uint64_t reg_fp[64];
+	uint64_t rs;
+	uint64_t rt;
+	uint64_t rd;
+
+	uint8_t get8(uint64_t value);
+	uint16_t get16(uint64_t value);
+	uint32_t get32(uint64_t value);
+	uint64_t get64(uint64_t value);
 };
 
-
 }
 
 }
 
-#endif // MIPSCPU_H
+#endif // REGHELPER_H

@@ -19,6 +19,7 @@
 #define MIPSINSTRUCTIONS_H
 
 #include <cstdint>
+#include "../MipsIV.h"
 #include "../MipsCpu.h"
 
 namespace sgemew
@@ -36,158 +37,158 @@ public:
 	MipsInstructions();
 	~MipsInstructions();
 
-	static void nop(uint32_t data, MipsCpu* cpu);
+	static void nop(ARGS);
 
 	//{ Base Opcodes
-	static void mspecial(uint32_t data, MipsCpu* cpu);
-	static void mregimm(uint32_t data, MipsCpu* cpu);
-	static void mj(uint32_t data, MipsCpu* cpu);
-	static void mjal(uint32_t data, MipsCpu* cpu);
-	static void mbeq(uint32_t data, MipsCpu* cpu);
-	static void mbne(uint32_t data, MipsCpu* cpu);
-	static void mblez(uint32_t data, MipsCpu* cpu);
-	static void mbgtz(uint32_t data, MipsCpu* cpu);
+	static void mspecial(ARGS);
+	static void mregimm(ARGS);
+	static void mj(ARGS);
+	static void mjal(ARGS);
+	static void mbeq(ARGS);
+	static void mbne(ARGS);
+	static void mblez(ARGS);
+	static void mbgtz(ARGS);
 
-	static void maddi(uint32_t data, MipsCpu* cpu);
-	static void maddiu(uint32_t data, MipsCpu* cpu);
-	static void mslti(uint32_t data, MipsCpu* cpu);
-	static void msltiu(uint32_t data, MipsCpu* cpu);
-	static void mandi(uint32_t data, MipsCpu* cpu);
-	static void mori(uint32_t data, MipsCpu* cpu);
-	static void mxori(uint32_t data, MipsCpu* cpu);
-	static void mlui(uint32_t data, MipsCpu* cpu);
+	static void maddi(ARGS);
+	static void maddiu(ARGS);
+	static void mslti(ARGS);
+	static void msltiu(ARGS);
+	static void mandi(ARGS);
+	static void mori(ARGS);
+	static void mxori(ARGS);
+	static void mlui(ARGS);
 
-	static void mcop0(uint32_t data, MipsCpu* cpu);
-	static void mcop1(uint32_t data, MipsCpu* cpu);
-	static void mcop2(uint32_t data, MipsCpu* cpu);
-	static void mcop1x(uint32_t data, MipsCpu* cpu);
-	static void mbeql(uint32_t data, MipsCpu* cpu);
-	static void mbnel(uint32_t data, MipsCpu* cpu);
-	static void mblezl(uint32_t data, MipsCpu* cpu);
-	static void mbgtzl(uint32_t data, MipsCpu* cpu);
+	static void mcop0(ARGS);
+	static void mcop1(ARGS);
+	static void mcop2(ARGS);
+	static void mcop1x(ARGS);
+	static void mbeql(ARGS);
+	static void mbnel(ARGS);
+	static void mblezl(ARGS);
+	static void mbgtzl(ARGS);
 
-	static void mdaddi(uint32_t data, MipsCpu* cpu);
-	static void mdaddiu(uint32_t data, MipsCpu* cpu);
-	static void mldl(uint32_t data, MipsCpu* cpu);
-	static void mldr(uint32_t data, MipsCpu* cpu);
+	static void mdaddi(ARGS);
+	static void mdaddiu(ARGS);
+	static void mldl(ARGS);
+	static void mldr(ARGS);
 
-	static void mlb(uint32_t data, MipsCpu* cpu);
-	static void mlh(uint32_t data, MipsCpu* cpu);
-	static void mlwl(uint32_t data, MipsCpu* cpu);
-	static void mlw(uint32_t data, MipsCpu* cpu);
-	static void mlbu(uint32_t data, MipsCpu* cpu);
-	static void mlhu(uint32_t data, MipsCpu* cpu);
-	static void mlwr(uint32_t data, MipsCpu* cpu);
-	static void mlwu(uint32_t data, MipsCpu* cpu);
+	static void mlb(ARGS);
+	static void mlh(ARGS);
+	static void mlwl(ARGS);
+	static void mlw(ARGS);
+	static void mlbu(ARGS);
+	static void mlhu(ARGS);
+	static void mlwr(ARGS);
+	static void mlwu(ARGS);
 
-	static void msb(uint32_t data, MipsCpu* cpu);
-	static void msh(uint32_t data, MipsCpu* cpu);
-	static void mswl(uint32_t data, MipsCpu* cpu);
-	static void msw(uint32_t data, MipsCpu* cpu);
-	static void msdl(uint32_t data, MipsCpu* cpu);
-	static void msdr(uint32_t data, MipsCpu* cpu);
-	static void mswr(uint32_t data, MipsCpu* cpu);
+	static void msb(ARGS);
+	static void msh(ARGS);
+	static void mswl(ARGS);
+	static void msw(ARGS);
+	static void msdl(ARGS);
+	static void msdr(ARGS);
+	static void mswr(ARGS);
 
-	static void mll(uint32_t data, MipsCpu* cpu);
-	static void mlwc1(uint32_t data, MipsCpu* cpu);
-	static void mlwc2(uint32_t data, MipsCpu* cpu);
-	static void mpref(uint32_t data, MipsCpu* cpu);
-	static void mlld(uint32_t data, MipsCpu* cpu);
-	static void mldc1(uint32_t data, MipsCpu* cpu);
-	static void mldc2(uint32_t data, MipsCpu* cpu);
-	static void mld(uint32_t data, MipsCpu* cpu);
+	static void mll(ARGS);
+	static void mlwc1(ARGS);
+	static void mlwc2(ARGS);
+	static void mpref(ARGS);
+	static void mlld(ARGS);
+	static void mldc1(ARGS);
+	static void mldc2(ARGS);
+	static void mld(ARGS);
 
-	static void msc(uint32_t data, MipsCpu* cpu);
-	static void mswc1(uint32_t data, MipsCpu* cpu);
-	static void mswc2(uint32_t data, MipsCpu* cpu);
-	static void mscd(uint32_t data, MipsCpu* cpu);
-	static void msdc1(uint32_t data, MipsCpu* cpu);
-	static void msdc2(uint32_t data, MipsCpu* cpu);
-	static void msd(uint32_t data, MipsCpu* cpu);
+	static void msc(ARGS);
+	static void mswc1(ARGS);
+	static void mswc2(ARGS);
+	static void mscd(ARGS);
+	static void msdc1(ARGS);
+	static void msdc2(ARGS);
+	static void msd(ARGS);
 	//}
 
 	//{ special functions
-	static void msll(uint32_t data, MipsCpu* cpu);
-	static void mmovci(uint32_t data, MipsCpu* cpu);
-	static void msrl(uint32_t data, MipsCpu* cpu);
-	static void msra(uint32_t data, MipsCpu* cpu);
-	static void msllv(uint32_t data, MipsCpu* cpu);
-	static void msrlv(uint32_t data, MipsCpu* cpu);
-	static void msrav(uint32_t data, MipsCpu* cpu);
+	static void msll(ARGS);
+	static void mmovci(ARGS);
+	static void msrl(ARGS);
+	static void msra(ARGS);
+	static void msllv(ARGS);
+	static void msrlv(ARGS);
+	static void msrav(ARGS);
 
-	static void mjr(uint32_t data, MipsCpu* cpu);
-	static void mjalr(uint32_t data, MipsCpu* cpu);
-	static void mmovz(uint32_t data, MipsCpu* cpu);
-	static void mmovn(uint32_t data, MipsCpu* cpu);
-	static void msyscall(uint32_t data, MipsCpu* cpu);
-	static void mbreak(uint32_t data, MipsCpu* cpu);
-	static void msync(uint32_t data, MipsCpu* cpu);
+	static void mjr(ARGS);
+	static void mjalr(ARGS);
+	static void mmovz(ARGS);
+	static void mmovn(ARGS);
+	static void msyscall(ARGS);
+	static void mbreak(ARGS);
+	static void msync(ARGS);
 
-	static void mmfhi(uint32_t data, MipsCpu* cpu);
-	static void mmthi(uint32_t data, MipsCpu* cpu);
-	static void mmflo(uint32_t data, MipsCpu* cpu);
-	static void mmtlo(uint32_t data, MipsCpu* cpu);
-	static void mdsllv(uint32_t data, MipsCpu* cpu);
-	static void mdsrlv(uint32_t data, MipsCpu* cpu);
-	static void mdsrav(uint32_t data, MipsCpu* cpu);
+	static void mmfhi(ARGS);
+	static void mmthi(ARGS);
+	static void mmflo(ARGS);
+	static void mmtlo(ARGS);
+	static void mdsllv(ARGS);
+	static void mdsrlv(ARGS);
+	static void mdsrav(ARGS);
 
-	static void mmult(uint32_t data, MipsCpu* cpu);
-	static void mmultu(uint32_t data, MipsCpu* cpu);
-	static void mdiv(uint32_t data, MipsCpu* cpu);
-	static void mdivu(uint32_t data, MipsCpu* cpu);
-	static void mdmult(uint32_t data, MipsCpu* cpu);
-	static void mdmultu(uint32_t data, MipsCpu* cpu);
-	static void mddiv(uint32_t data, MipsCpu* cpu);
-	static void mddivu(uint32_t data, MipsCpu* cpu);
+	static void mmult(ARGS);
+	static void mmultu(ARGS);
+	static void mdiv(ARGS);
+	static void mdivu(ARGS);
+	static void mdmult(ARGS);
+	static void mdmultu(ARGS);
+	static void mddiv(ARGS);
+	static void mddivu(ARGS);
 
-	static void madd(uint32_t data, MipsCpu* cpu);
-	static void maddu(uint32_t data, MipsCpu* cpu);
-	static void msub(uint32_t data, MipsCpu* cpu);
-	static void msubu(uint32_t data, MipsCpu* cpu);
-	static void mand(uint32_t data, MipsCpu* cpu);
-	static void mor(uint32_t data, MipsCpu* cpu);
-	static void mxor(uint32_t data, MipsCpu* cpu);
-	static void mnor(uint32_t data, MipsCpu* cpu);
+	static void madd(ARGS);
+	static void maddu(ARGS);
+	static void msub(ARGS);
+	static void msubu(ARGS);
+	static void mand(ARGS);
+	static void mor(ARGS);
+	static void mxor(ARGS);
+	static void mnor(ARGS);
 
-	static void mslt(uint32_t data, MipsCpu* cpu);
-	static void msltu(uint32_t data, MipsCpu* cpu);
-	static void mdadd(uint32_t data, MipsCpu* cpu);
-	static void mdaddu(uint32_t data, MipsCpu* cpu);
-	static void mdsub(uint32_t data, MipsCpu* cpu);
-	static void mdsubu(uint32_t data, MipsCpu* cpu);
+	static void mslt(ARGS);
+	static void msltu(ARGS);
+	static void mdadd(ARGS);
+	static void mdaddu(ARGS);
+	static void mdsub(ARGS);
+	static void mdsubu(ARGS);
 
-	static void mtge(uint32_t data, MipsCpu* cpu);
-	static void mtgeu(uint32_t data, MipsCpu* cpu);
-	static void mtlt(uint32_t data, MipsCpu* cpu);
-	static void mtltu(uint32_t data, MipsCpu* cpu);
-	static void mteq(uint32_t data, MipsCpu* cpu);
-	static void mtne(uint32_t data, MipsCpu* cpu);
+	static void mtge(ARGS);
+	static void mtgeu(ARGS);
+	static void mtlt(ARGS);
+	static void mtltu(ARGS);
+	static void mteq(ARGS);
+	static void mtne(ARGS);
 
-	static void mdsll(uint32_t data, MipsCpu* cpu);
-	static void mdsrl(uint32_t data, MipsCpu* cpu);
-	static void mdsra(uint32_t data, MipsCpu* cpu);
-	static void mdsll32(uint32_t data, MipsCpu* cpu);
-	static void mdsrl32(uint32_t data, MipsCpu* cpu);
-	static void mdsra32(uint32_t data, MipsCpu* cpu);
+	static void mdsll(ARGS);
+	static void mdsrl(ARGS);
+	static void mdsra(ARGS);
+	static void mdsll32(ARGS);
+	static void mdsrl32(ARGS);
+	static void mdsra32(ARGS);
 	//}
 
 	//{ regimm functions
-	static void mbltz(uint32_t data, MipsCpu* cpu);
-	static void mbgez(uint32_t data, MipsCpu* cpu);
-	static void mbltzl(uint32_t data, MipsCpu* cpu);
-	static void mbgezl(uint32_t data, MipsCpu* cpu);
+	static void mbltz(ARGS);
+	static void mbgez(ARGS);
+	static void mbltzl(ARGS);
+	static void mbgezl(ARGS);
 
-	static void mtgei(uint32_t data, MipsCpu* cpu);
-	static void mtgeiu(uint32_t data, MipsCpu* cpu);
-	static void mtlti(uint32_t data, MipsCpu* cpu);
-	static void mtltiu(uint32_t data, MipsCpu* cpu);
-	static void mteqi(uint32_t data, MipsCpu* cpu);
-	static void mtnei(uint32_t data, MipsCpu* cpu);
+	static void mtgei(ARGS);
+	static void mtgeiu(ARGS);
+	static void mtlti(ARGS);
+	static void mtltiu(ARGS);
+	static void mteqi(ARGS);
+	static void mtnei(ARGS);
 
-	static void mbltzal(uint32_t data, MipsCpu* cpu);
-	static void mbgezal(uint32_t data, MipsCpu* cpu);
-	static void mbltzall(uint32_t data, MipsCpu* cpu);
-	static void mbgezall(uint32_t data, MipsCpu* cpu);
+	static void mbltzal(ARGS);
+	static void mbgezal(ARGS);
+	static void mbltzall(ARGS);
+	static void mbgezall(ARGS);
 	//}
 
 };
