@@ -44,15 +44,21 @@ void MipsInstructions::mregimm(ARGS)
 }
 
 void MipsInstructions::mj(ARGS)
-{
+{ // page 86
+	//uint32_t addr = (0x3ffffff & data) << 2;
+	// TODO: make effective target address
+	// better understand this documentation
 	return;
 }
 
 void MipsInstructions::mjal(ARGS)
-{
+{ // page 87
 	return;
 }
 
+/**
+ * @todo figure out how to implement branching
+ */
 void MipsInstructions::mbeq(ARGS)
 { // page 44
 	// TODO: figure out how to implement branching
@@ -60,17 +66,17 @@ void MipsInstructions::mbeq(ARGS)
 }
 
 void MipsInstructions::mbne(ARGS)
-{
+{ // page 60
 	return;
 }
 
 void MipsInstructions::mblez(ARGS)
-{
+{ // page 53
 	return;
 }
 
 void MipsInstructions::mbgtz(ARGS)
-{
+{ // page 51
 	return;
 }
 
@@ -93,12 +99,14 @@ void MipsInstructions::maddiu(ARGS)
 }
 
 void MipsInstructions::mslti(ARGS)
-{
+{ // page 153
+	rh->rd = ((int64_t)rh->rs < (int64_t)rh->get16(data))?1:0;
 	return;
 }
 
 void MipsInstructions::msltiu(ARGS)
-{
+{ // page 154
+	rh->rd = (rh->rs < rh->rt)?1:0;
 	return;
 }
 
@@ -110,58 +118,60 @@ void MipsInstructions::mandi(ARGS)
 }
 
 void MipsInstructions::mori(ARGS)
-{
+{ // page 129
+	rh->rt = rh->rs | rh->get16(data);
 	return;
 }
 
 void MipsInstructions::mxori(ARGS)
-{
+{ // page 189
+	rh->rd = rh->rs ^ rh->get16(data);
 	return;
 }
 
 void MipsInstructions::mlui(ARGS)
-{
+{ // page 107
 	return;
 }
 
 
 void MipsInstructions::mcop0(ARGS)
-{
+{ // page 63
 	return;
 }
 
 void MipsInstructions::mcop1(ARGS)
-{
+{ // page 63
 	return;
 }
 
 void MipsInstructions::mcop2(ARGS)
-{
+{ // page 63
 	return;
 }
 
 void MipsInstructions::mcop1x(ARGS)
-{
+{ // page 63
 	return;
 }
 
 void MipsInstructions::mbeql(ARGS)
-{
+{ // page 45
 	return;
 }
 
 void MipsInstructions::mbnel(ARGS)
-{
+{ // page 61
 	return;
 }
 
 void MipsInstructions::mblezl(ARGS)
-{
+{ // page 54
 	return;
 }
 
 void MipsInstructions::mbgtzl(ARGS)
-{
+{ // page 52
 	return;
 }
 
@@ -179,166 +189,166 @@ void MipsInstructions::mdaddiu(ARGS)
 }
 
 void MipsInstructions::mldl(ARGS)
-{
+{ // pag 95
 	return;
 }
 
 void MipsInstructions::mldr(ARGS)
-{
+{ // page 98
 	return;
 }
 
 
 void MipsInstructions::mlb(ARGS)
-{
+{ // page 90 (requires memory)
 	return;
 }
 
 void MipsInstructions::mlh(ARGS)
-{
+{ // pge 101
 	return;
 }
 
 void MipsInstructions::mlwl(ARGS)
-{
+{ // page 111
 	return;
 }
 
 void MipsInstructions::mlw(ARGS)
-{
+{ // page 108
 	return;
 }
 
 void MipsInstructions::mlbu(ARGS)
-{
+{ // page 91
 	return;
 }
 
 void MipsInstructions::mlhu(ARGS)
-{
+{ // page 102
 	return;
 }
 
 void MipsInstructions::mlwr(ARGS)
-{
+{ // page 114
 	return;
 }
 
 void MipsInstructions::mlwu(ARGS)
-{
+{ // page 118
 	return;
 }
 
 
 void MipsInstructions::msb(ARGS)
-{
+{ // page 133
 	return;
 }
 
 void MipsInstructions::msh(ARGS)
-{
+{ // page 149
 	return;
 }
 
 void MipsInstructions::mswl(ARGS)
-{
+{ // page 165
 	return;
 }
 
 void MipsInstructions::msw(ARGS)
-{
+{ // page 162
 	return;
 }
 
 void MipsInstructions::msdl(ARGS)
-{
+{ // page 143
 	return;
 }
 
 void MipsInstructions::msdr(ARGS)
-{
+{ // page 146
 	return;
 }
 
 void MipsInstructions::mswr(ARGS)
-{
+{ // page 168
 	return;
 }
 
 
 void MipsInstructions::mll(ARGS)
-{
+{ // page 103
 	return;
 }
 
 void MipsInstructions::mlwc1(ARGS)
-{
+{ // page 109
 	return;
 }
 
 void MipsInstructions::mlwc2(ARGS)
-{
+{ // page 109
 	return;
 }
 
 void MipsInstructions::mpref(ARGS)
-{
+{ // page 130
 	return;
 }
 
 void MipsInstructions::mlld(ARGS)
-{
+{ // page 105
 	return;
 }
 
 void MipsInstructions::mldc1(ARGS)
-{
+{ // page 93
 	return;
 }
 
 void MipsInstructions::mldc2(ARGS)
-{
+{ // page 93
 	return;
 }
 
 void MipsInstructions::mld(ARGS)
-{
+{ // page 92
 	return;
 }
 
 
 void MipsInstructions::msc(ARGS)
-{
+{ // page 134
 	return;
 }
 
 void MipsInstructions::mswc1(ARGS)
-{
+{ // page 163
 	return;
 }
 
 void MipsInstructions::mswc2(ARGS)
-{
+{ // page 163
 	return;
 }
 
 void MipsInstructions::mscd(ARGS)
-{
+{ // page 137
 	return;
 }
 
 void MipsInstructions::msdc1(ARGS)
-{
+{ // page 141
 	return;
 }
 
 void MipsInstructions::msdc2(ARGS)
-{
+{ // page 141
 	return;
 }
 
 void MipsInstructions::msd(ARGS)
-{
+{ // page 140
 	return;
 }
 
@@ -346,63 +356,79 @@ void MipsInstructions::msd(ARGS)
 
 //{ special functions
 void MipsInstructions::msll(ARGS)
-{
+{ // page 150
+	rh->rd = rh->get32(rh->rt << VALUE_SA(data));
 	return;
 }
 
 void MipsInstructions::mmovci(ARGS)
-{
+{ // page 277
+	// throws "CoprocessorUnusable"
 	return;
 }
 
 void MipsInstructions::msrl(ARGS)
-{
+{ // page 158
+	rh->rd = rh->rt >> VALUE_SA(data);
 	return;
 }
 
 void MipsInstructions::msra(ARGS)
-{
+{ // page 156
+	rh->rt = rh->rt >> VALUE_SA(data);
 	return;
 }
 
 void MipsInstructions::msllv(ARGS)
-{
+{ // page 151
+	rh->rd = rh->get32(rh->rt << rh->rs);
 	return;
 }
 
 void MipsInstructions::msrlv(ARGS)
-{
+{ // page 159
+	rh->rd = rh->rt >> rh->rs;
 	return;
 }
 
 void MipsInstructions::msrav(ARGS)
-{
+{ // page 157
+	rh->rd = rh->rt >> rh->rs;
 	return;
 }
 
 
 void MipsInstructions::mjr(ARGS)
-{
+{ // page 89
 	return;
 }
 
 void MipsInstructions::mjalr(ARGS)
-{
+{ // page 88
 	return;
 }
 
 void MipsInstructions::mmovz(ARGS)
-{
+{ // page 122
+	if (rh->rt == 0)
+	{
+		rh->rd = rh->rs;
+	}
 	return;
 }
 
 void MipsInstructions::mmovn(ARGS)
-{
+{ // page 121
+	if (rh->rt != 0)
+	{
+		rh->rd = rh->rs;
+	}
 	return;
 }
 
 void MipsInstructions::msyscall(ARGS)
-{
+{ // page 175
+	// throws "SystemCall"
 	return;
 }
 
@@ -413,28 +439,28 @@ void MipsInstructions::mbreak(ARGS)
 }
 
 void MipsInstructions::msync(ARGS)
-{
+{ // page 171
 	return;
 }
 
 
 void MipsInstructions::mmfhi(ARGS)
-{
+{ // page 119
 	return;
 }
 
 void MipsInstructions::mmthi(ARGS)
-{
+{ // page 123
 	return;
 }
 
 void MipsInstructions::mmflo(ARGS)
-{
+{ // page 120
 	return;
 }
 
 void MipsInstructions::mmtlo(ARGS)
-{
+{ // page 124
 	return;
 }
 
@@ -446,7 +472,7 @@ void MipsInstructions::mdsllv(ARGS)
 
 void MipsInstructions::mdsrlv(ARGS)
 { // page 83
-	rh->rd = rh->rt >> rh>rs;
+	rh->rd = rh->rt >> rh->rs;
 	return;
 }
 
@@ -458,12 +484,18 @@ void MipsInstructions::mdsrav(ARGS)
 
 
 void MipsInstructions::mmult(ARGS)
-{
+{ // page 125
+	int64_t tmp = (int32_t)rh->get32(rh->rs) * (int32_t)rh->get32(rh->rt);
+	int32_t lo = (int32_t)rh->get32(tmp);
+	int32_t hi = (int32_t)rh->get32(tmp >> 32);
 	return;
 }
 
 void MipsInstructions::mmultu(ARGS)
-{
+{ // page 126
+	uint64_t tmp = rh->get32(rh->rs) * rh->get32(rh->rt);
+	uint32_t lo = rh->get32(tmp);
+	uint32_t hi = rh->get32(tmp >> 32);
 	return;
 }
 
@@ -533,12 +565,14 @@ void MipsInstructions::maddu(ARGS)
 }
 
 void MipsInstructions::msub(ARGS)
-{
+{ // page 160
+	rh->rd = rh->get32((int64_t)rh->rs - (int64_t)rh->rt);
 	return;
 }
 
 void MipsInstructions::msubu(ARGS)
-{
+{ // page 161
+	rh->rd = rh->get32(rh->rs - rh->rt);
 	return;
 }
 
@@ -550,28 +584,33 @@ void MipsInstructions::mand(ARGS)
 }
 
 void MipsInstructions::mor(ARGS)
-{
+{ // page 128
+	rh->rd = rh->rs | rh->rt;
 	return;
 }
 
 void MipsInstructions::mxor(ARGS)
-{
+{ // page 188
+	rh->rd = rh->rs ^ rh->rt;
 	return;
 }
 
 void MipsInstructions::mnor(ARGS)
-{
+{ // page 127
+	rh->rd = ~(rh->rs | rh->rt);
 	return;
 }
 
 
 void MipsInstructions::mslt(ARGS)
-{
+{ // page 152
+	rh->rd = ((int64_t)rh->rs < (int64_t)rh->rt)?1:0;
 	return;
 }
 
 void MipsInstructions::msltu(ARGS)
-{
+{ // page 155
+	rh->rd = (rh->rs < rh->rt)?1:0;
 	return;
 }
 
@@ -590,43 +629,46 @@ void MipsInstructions::mdaddu(ARGS)
 }
 
 void MipsInstructions::mdsub(ARGS)
-{
+{ // page 84
+	rh->rd = (int64_t)rh->rs - (int64_t)rh->rt;
 	return;
 }
 
 void MipsInstructions::mdsubu(ARGS)
-{
+{ // page 85
+	rh->rd = rh->rs - rh->rt;
 	return;
 }
 
 
 void MipsInstructions::mtge(ARGS)
-{
+{ // page 178
 	return;
 }
 
 void MipsInstructions::mtgeu(ARGS)
-{
+{ // page 181
 	return;
 }
 
 void MipsInstructions::mtlt(ARGS)
-{
+{ // page 182
 	return;
 }
 
 void MipsInstructions::mtltu(ARGS)
-{
+{ // page 185
 	return;
 }
 
 void MipsInstructions::mteq(ARGS)
-{
+{ // page 176
+	// throws "Trap"
 	return;
 }
 
 void MipsInstructions::mtne(ARGS)
-{
+{ // page 186
 	return;
 }
 
@@ -671,74 +713,74 @@ void MipsInstructions::mdsra32(ARGS)
 
 //{ regimm functions
 void MipsInstructions::mbltz(ARGS)
-{
+{ // page 55
 	return;
 }
 
 void MipsInstructions::mbgez(ARGS)
-{
+{ // page 46
 	return;
 }
 
 void MipsInstructions::mbltzl(ARGS)
-{
+{ // page 59
 	return;
 }
 
 void MipsInstructions::mbgezl(ARGS)
-{
+{ // page 50
 	return;
 }
 
 
 void MipsInstructions::mtgei(ARGS)
-{
+{ // page 179
 	return;
 }
 
 void MipsInstructions::mtgeiu(ARGS)
-{
+{ // page 180
 	return;
 }
 
 void MipsInstructions::mtlti(ARGS)
-{
+{ // page 183
 	return;
 }
 
 void MipsInstructions::mtltiu(ARGS)
-{
+{ // page 184
 	return;
 }
 
 void MipsInstructions::mteqi(ARGS)
-{
+{ // page 177
 	return;
 }
 
 void MipsInstructions::mtnei(ARGS)
-{
+{ // page 187
 	return;
 }
 
 
 void MipsInstructions::mbltzal(ARGS)
-{
+{ // page 56
 	return;
 }
 
 void MipsInstructions::mbgezal(ARGS)
-{
+{ // page 47
 	return;
 }
 
 void MipsInstructions::mbltzall(ARGS)
-{
+{ // page 57
 	return;
 }
 
 void MipsInstructions::mbgezall(ARGS)
-{
+{ // page 48
 	return;
 }
 
