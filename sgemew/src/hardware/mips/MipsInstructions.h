@@ -31,6 +31,12 @@ namespace hardware
 namespace mips
 {
 
+/** Implementations for MIPS instructions
+ * @class MipsInstructions
+ * @author Kitty
+ * @date 10 March 2019
+ * @file MipsInstructions.h
+ */
 class MipsInstructions
 {
 public:
@@ -39,7 +45,6 @@ public:
 
 	static void nop(ARGS);
 
-	//{ Base Opcodes
 	static void mspecial(ARGS);
 	static void mregimm(ARGS);
 	static void mj(ARGS);
@@ -105,9 +110,7 @@ public:
 	static void msdc1(ARGS);
 	static void msdc2(ARGS);
 	static void msd(ARGS);
-	//}
 
-	//{ special functions
 	static void msll(ARGS);
 	static void mmovci(ARGS);
 	static void msrl(ARGS);
@@ -170,9 +173,7 @@ public:
 	static void mdsll32(ARGS);
 	static void mdsrl32(ARGS);
 	static void mdsra32(ARGS);
-	//}
 
-	//{ regimm functions
 	static void mbltz(ARGS);
 	static void mbgez(ARGS);
 	static void mbltzl(ARGS);
@@ -189,7 +190,6 @@ public:
 	static void mbgezal(ARGS);
 	static void mbltzall(ARGS);
 	static void mbgezall(ARGS);
-	//}
 
 };
 

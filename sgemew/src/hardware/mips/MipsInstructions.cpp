@@ -32,7 +32,6 @@ void MipsInstructions::nop(ARGS)
 	return;
 }
 
-//{ Base Opcodes
 void MipsInstructions::mspecial(ARGS)
 {
 	return;
@@ -352,9 +351,6 @@ void MipsInstructions::msd(ARGS)
 	return;
 }
 
-//}
-
-//{ special functions
 void MipsInstructions::msll(ARGS)
 { // page 150
 	rh->rd = rh->get32(rh->rt << VALUE_SA(data));
@@ -709,9 +705,6 @@ void MipsInstructions::mdsra32(ARGS)
 	return;
 }
 
-//}
-
-//{ regimm functions
 void MipsInstructions::mbltz(ARGS)
 { // page 55
 	return;
@@ -783,5 +776,3 @@ void MipsInstructions::mbgezall(ARGS)
 { // page 48
 	return;
 }
-
-//}
