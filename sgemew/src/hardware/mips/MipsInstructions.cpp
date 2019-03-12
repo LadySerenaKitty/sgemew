@@ -102,7 +102,7 @@ void MipsInstructions::mbgezal(ARGS)
 }
 
 void MipsInstructions::mbgezall(ARGS)
-{ // page 48
+{ // page 48, 49
 	return;
 }
 
@@ -142,7 +142,7 @@ void MipsInstructions::mbltzal(ARGS)
 }
 
 void MipsInstructions::mbltzall(ARGS)
-{ // page 57
+{ // page 57, 58
 	return;
 }
 
@@ -230,7 +230,7 @@ void MipsInstructions::mddivu(ARGS)
 }
 
 void MipsInstructions::mdiv(ARGS)
-{ // page 70
+{ // page 70, 71
 	int64_t lo = (int32_t)rg->get32(rg->rs) / (int32_t)rg->get32(rg->rt);
 	int64_t hi = (int32_t)rg->get32(rg->rs) % (int32_t)rg->get32(rg->rt);
 	// TODO: figure out LO and HI
@@ -371,18 +371,18 @@ void MipsInstructions::mld(ARGS)
 }
 
 void MipsInstructions::mldc1(ARGS)
-{ // page 93
+{ // page 93 94
 	// TODO: implement coprocessors
 	return;
 }
 
 void MipsInstructions::mldc2(ARGS)
-{ // page 93
+{ // page 93, 94
 	return;
 }
 
 void MipsInstructions::mldl(ARGS)
-{ // page 95
+{ // page 95, 96, 97
 	uint64_t addr = rg->rs + (int64_t)rg->get16(data);
 	uint64_t dt = cpu->sm->read64(addr);
 	switch (0x7 & addr)
@@ -400,7 +400,7 @@ void MipsInstructions::mldl(ARGS)
 }
 
 void MipsInstructions::mldr(ARGS)
-{ // page 98
+{ // page 98, 99, 100
 	uint64_t addr = rg->rs + (int64_t)rg->get16(data);
 	uint64_t dt = cpu->sm->read64(addr);
 	switch (0x7 & addr)
@@ -432,14 +432,14 @@ void MipsInstructions::mlhu(ARGS)
 }
 
 void MipsInstructions::mll(ARGS)
-{ // page 103
+{ // page 103, 104
 	rg->rt = cpu->sm->read32(rg->rs + (int64_t)rg->get16(data));
 	// throws "TLBRefill", "TLBInvalid", "AddressError"
 	return;
 }
 
 void MipsInstructions::mlld(ARGS)
-{ // page 105
+{ // page 105, 106
 	rg->rt = cpu->sm->read64(rg->rs + (int64_t)rg->get16(data));
 	// throws "TLBRefill", "TLBInvalid", "AddressError"
 	return;
@@ -460,17 +460,17 @@ void MipsInstructions::mlw(ARGS)
 }
 
 void MipsInstructions::mlwc1(ARGS)
-{ // page 109
+{ // page 109, 110
 	return;
 }
 
 void MipsInstructions::mlwc2(ARGS)
-{ // page 109
+{ // page 109, 110
 	return;
 }
 
 void MipsInstructions::mlwl(ARGS)
-{ // page 111
+{ // page 111, 112, 113
 	uint64_t addr = rg->rs + (int64_t)rg->get16(data);
 	uint64_t dt = cpu->sm->read32(addr);
 	switch (0x3 & addr)
@@ -484,7 +484,7 @@ void MipsInstructions::mlwl(ARGS)
 }
 
 void MipsInstructions::mlwr(ARGS)
-{ // page 114
+{ // page 114, 115, 116, 117
 	uint64_t addr = rg->rs + (int64_t)rg->get16(data);
 	uint64_t dt = cpu->sm->read32(addr);
 	switch (0x3 & addr)
@@ -578,7 +578,7 @@ void MipsInstructions::mori(ARGS)
 }
 
 void MipsInstructions::mpref(ARGS)
-{ // page 130
+{ // page 130, 131, 132
 	return;
 }
 
@@ -591,7 +591,7 @@ void MipsInstructions::msb(ARGS)
 }
 
 void MipsInstructions::msc(ARGS)
-{ // page 134
+{ // page 134, 135, 136
 	uint64_t addr = rg->rs + (int64_t)(0xfffc & rg->get16(data));
 	cpu->sm->write(addr, rg->get32(rg->rt));
 	// throws "TLBRefill", "TLBInvalid", "AddressError", "TLBModified"
@@ -599,7 +599,7 @@ void MipsInstructions::msc(ARGS)
 }
 
 void MipsInstructions::mscd(ARGS)
-{ // page 137
+{ // page 137, 138, 139
 	uint64_t addr = rg->rs + (int64_t)(0xfff8 & rg->get16(data));
 	cpu->sm->write(addr, rg->rt);
 	// throws "TLBRefill", "TLBInvalid", "AddressError", "TLBModified"
@@ -615,17 +615,17 @@ void MipsInstructions::msd(ARGS)
 }
 
 void MipsInstructions::msdc1(ARGS)
-{ // page 141
+{ // page 141, 142
 	return;
 }
 
 void MipsInstructions::msdc2(ARGS)
-{ // page 141
+{ // page 141, 142
 	return;
 }
 
 void MipsInstructions::msdl(ARGS)
-{ // page 143
+{ // page 143, 144, 145
 	uint64_t addr = rg->rs + (int64_t)rg->get16(data);
 	uint64_t dt = cpu->sm->read64(addr);
 	switch (0x7 & addr)
@@ -643,7 +643,7 @@ void MipsInstructions::msdl(ARGS)
 }
 
 void MipsInstructions::msdr(ARGS)
-{ // page 146
+{ // page 146, 147, 148
 	uint64_t addr = rg->rs + (int64_t)rg->get16(data);
 	uint64_t dt = cpu->sm->read64(addr);
 	switch (0x7 & addr)
@@ -749,17 +749,17 @@ void MipsInstructions::msw(ARGS)
 }
 
 void MipsInstructions::mswc1(ARGS)
-{ // page 163
+{ // page 163, 164
 	return;
 }
 
 void MipsInstructions::mswc2(ARGS)
-{ // page 163
+{ // page 163, 164
 	return;
 }
 
 void MipsInstructions::mswl(ARGS)
-{ // page 165
+{ // page 165, 166, 167
 	uint64_t addr = rg->rs + (int64_t)rg->get16(data);
 	uint64_t dt = cpu->sm->read32(addr);
 	switch (0x3 & addr)
@@ -773,7 +773,7 @@ void MipsInstructions::mswl(ARGS)
 }
 
 void MipsInstructions::mswr(ARGS)
-{ // page 168
+{ // page 168, 169, 170
 	uint64_t addr = rg->rs + (int64_t)rg->get16(data);
 	uint64_t dt = cpu->sm->read32(addr);
 	switch (0x3 & addr)
@@ -787,7 +787,7 @@ void MipsInstructions::mswr(ARGS)
 }
 
 void MipsInstructions::msync(ARGS)
-{ // page 171
+{ // page 171, 172, 173, 174
 	return;
 }
 

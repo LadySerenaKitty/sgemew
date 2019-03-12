@@ -1,5 +1,5 @@
-[![pipeline status](https://gitlab.com/LadySerenaKitty/sgemew/badges/pipeline.svg)](https://gitlab.com/LadySerenaKitty/sgemew/commits/master)
-[![coverage status](https://gitlab.com/LadySerenaKitty/sgemew/badges/coverage.svg)](https://gitlab.com/LadySerenaKitty/sgemew/commits/master)
+[![pipeline status](https://gitlab.com/LadySerenaKitty/sgemew/badges/master/pipeline.svg)](https://gitlab.com/LadySerenaKitty/sgemew/commits/master)
+[![coverage status](https://gitlab.com/LadySerenaKitty/sgemew/badges/master/coverage.svg)](https://gitlab.com/LadySerenaKitty/sgemew/commits/master)
 
 # SGEmew
 
